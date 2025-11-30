@@ -18,7 +18,6 @@ const App = () => {
     <div className="d-flex" id="wrapper">
       <Sidebar sidebarvisible={sidebarvisible}/>
       <div id="page-content-wrapper">
-      {/* <Menubar togglesidebar={togglesidebar}/> */}
       <ToastContainer/>
         <div className="container-fluid">
           <Routes>
