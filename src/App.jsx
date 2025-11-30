@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Addfood from './pages/addfood/Addfood'
+import Addfood from './pages/Addfood/Addfood'
 import Listfood from './pages/Listfood/Listfood'
 import Orders from './pages/Orders/Orders'
 import Sidebar from './components/Sidebar/Sidebar'
