@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import addimg from '../../assets/addimg.png';
 import { toast, ToastContainer } from 'react-toastify';
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
+
 const Addfood = () => {
   const [image, setImage] = useState(null);
-  const [preview, setPreview] = useState(addimg); // 👈 this holds the actual URL
+  const [preview, setPreview] = useState(addimg);
   const [data, setData] = useState({
     name: '',
     description: '',
@@ -15,7 +17,7 @@ const Addfood = () => {
     if (image) {
       const url = URL.createObjectURL(image);
       setPreview(url);
-      return () => URL.revokeObjectURL(url); // cleanup old URL
+      return () => URL.revokeObjectURL(url);
     } else {
       setPreview(addimg);
     }
@@ -38,7 +40,7 @@ const Addfood = () => {
     formData.append('file', image);
 
     try {
-      const response = await fetch('http://localhost:8080/api/dishes/add', {
+      const response = await fetch(`${BASE_URL}/api/dishes/add`, {
         method: 'POST',
         body: formData,
       });

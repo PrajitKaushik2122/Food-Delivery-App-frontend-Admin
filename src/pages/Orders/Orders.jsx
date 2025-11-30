@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import logo from "../../assets/logo.jpg";
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
 
   const fetchOrders = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/orders/all");
+      const response = await fetch(`${BASE_URL}/api/orders/all`);
       if (response.ok) {
         const data = await response.json();
         setOrders(data);
@@ -29,7 +30,7 @@ const Orders = () => {
     // 🔥 2. Backend update
     try {
       const response = await fetch(
-        `http://localhost:8080/api/orders/status/${orderId}?status=${newStatus}`,
+        `${BASE_URL}/api/orders/status/${orderId}?status=${newStatus}`,
         {
           method: "PATCH",
         }

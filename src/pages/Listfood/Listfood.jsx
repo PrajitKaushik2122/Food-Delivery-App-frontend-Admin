@@ -1,11 +1,13 @@
 import React, { useState,useEffect } from 'react'
 import { toast } from 'react-toastify';
 import './Listfood.css'
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
+
 const Listfood = () => {
   const [list,setList] = useState([]);
   const fetchList = async ()=>{
       try{
-        const response = await fetch('http://localhost:8080/api/dishes/getAll', {
+        const response = await fetch(`${BASE_URL}/api/dishes/getAll`, {
           method: 'GET'
         });
         if(response.status==200){
@@ -27,7 +29,7 @@ const Listfood = () => {
 
   const removeDish = async(id)=>{
     try{
-        const response = await fetch('http://localhost:8080/api/dishes/delete', {
+        const response = await fetch(`${BASE_URL}/api/dishes/delete`, {
           method: 'DELETE',
           headers:{
             id:id,
