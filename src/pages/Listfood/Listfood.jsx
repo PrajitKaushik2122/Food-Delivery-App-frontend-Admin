@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import { toast } from 'react-toastify';
-import './Listfood.css'
+import './ListFood.css'
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
 const Listfood = () => {
